@@ -1,0 +1,850 @@
+---
+title: "Data Science for Public Health"
+subtitle: "Concepts, Applications and Case Studies"
+author: "![](aiims_bibinagar_logo.png){width=300}<br><br>**Dr. Arun Mitra Peddireddy** <br>Dept of Community and Family Medicine,<br>All India Institute of Medical Sciences (AIIMS), Hyderabad"
+format: 
+  revealjs:
+    slide-number: true
+    logo: aiims_bibinagar_logo.png
+    css: styles.css
+    code-overflow: wrap
+    highlight-style: a11y
+    height: 1080
+    width: 1920
+---
+
+# Concepts
+
+-   Essential concepts
+-   Mainly to get the big picture
+-   Spark interest rather than teaching
+
+
+## What is Public Health?
+
+::: {.columns}
+
+<br>
+
+::: {.column width="40%"}
+* Public health is the science and practice of protecting and improving the health of a population.
+
+* Core functions include disease prevention, health promotion, and surveillance.
+
+<br>
+
+::: {.callout-note}
+### Public Health 
+
+Public Health is multi-faceted and interdisciplinary, involving experts from various fields, including epidemiology, biostatistics, health services research, and behavioral sciences, to address the complex determinants of health.
+:::
+
+::: 
+
+::: {.column width="60%"}
+![](images/public_health_wordcloud.png)
+::: 
+
+::: 
+
+
+
+
+## Why is Public Health Important?
+
+### Public Health vs. Clinical Medicine
+
+- Prevents disease, prolongs life, promotes health through organized efforts.
+- Focuses on population-level health issues, preventive measures rather than curative.
+- Public health prioritizes common good over individual interests.
+- It promotes structural actions for disease prevention in society.
+
+
+## Grand Challenges in Healthcare
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+![](images/ph_grand_challenges.png)
+
+
+:::
+
+::: {.column width="40%"} 
+
+<br>
+
+### To measure health & disease status accurately and economically in poor countries
+
+
+
+- **GC 13:** Develop technologies that permit quantitative assessment of population
+health status.
+- **GC 14:** Develop technologies that allow assessment of individuals for multiple
+conditions or pathogens at point-of-care.
+
+
+
+:::
+
+:::
+
+::: {.aside}
+<br>
+Varmus et. al. Grand Challenges in Global Health. Science. 2003 Oct 17;302(5644):398-9.
+:::
+
+    
+## Public health Challenges for the 21st century
+
+
+
+::: {.columns}
+
+::: {.column width="40%"}
+
+<br>
+
+- poverty and economic disparities
+- climate change
+- infectious disease epidemics
+- living environments (urban living)
+- safe water and healthy food
+- non-communicable diseases including mental health
+- inadequate human resources in health
+- poor health systems financing
+
+
+:::
+
+::: {.column width="60%"}
+
+<br>
+
+![](images/nalanda_lecture.png)
+:::
+
+::: 
+
+::: {.aside}
+Narayan K M. Public health challenges for the 21st century: Convergence of demography, economics, environment and biology  (2017) 
+:::
+
+## Towards Digital Transformation 
+
+> Digtization $\rightarrow$ Digitalization $\rightarrow$ Digital Transformation
+
+::: columns
+::: {.column width="60%"}
+
+
+<br>
+
+-   Paper Based Systems to Digital Systems
+-   Rise of Health Information Systems
+-   Threshold of exponential growth, fueled by rapid digital transformation.
+-   Contributes to 20% of world's data
+-   One Billion digital health IDs by 2030
+-   10x in digital healthcare industry by 2030
+
+
+
+:::
+
+::: {.column width="40%"}
+![](images/digital_evolution_stages_india.png)
+:::
+:::
+
+::: aside
+Patel et. al. (2022)
+:::
+
+## National Push for a Digital Health Ecosystem
+
+<!-- 2.  Describe the problems that arise from the situation. -->
+
+Recognising the need for a creating a unified Digital Health Ecosystem
+
+<br>
+
+![](images/national_push_digital_health.png)
+
+
+<br>
+
+::: columns
+::: {.column width="40%"}
+> 2017: National Health Policy
+
+*"...attainment of the highest possible level of health and wellbeing for all at all ages"*
+:::
+
+::: {.column width="20%"}
+$\rightarrow$
+:::
+
+::: {.column width="40%"}
+
+> 2019: National Digtal Health Blueprint
+
+*"...to create a framework for the National Health Stack and to create an action plan the comprehensive and holistic implementation of Digital Health"*
+
+:::
+
+
+
+:::
+
+
+## National Digital Heath Blueprint
+
+::: columns
+::: {.column width="35%"}
+**Domain Principles**
+
+> Think Big, Start Small, Scale Fast
+
+::: {style="font-size: 70%;"}
+-   Educate
+-   Empower
+-   Accountability
+-   Portability
+-   Secure by Design
+:::
+
+**Technology Principles**
+
+> Single Source of Truth
+
+::: {style="font-size: 70%;"}
+-   Building Blocks
+-   Interoperable
+-   Leverage Legacy
+-   Open APIs
+-   Minimalist by Design
+:::
+:::
+
+::: {.column width="65%"}
+![Federated Architechture of the NDHB](images/federated_arch_NDHB.png)
+:::
+:::
+
+## The _**Last Mile**_ Problem
+
+![](images/overview_current_problem.png)
+
+
+## Policy Intention - Health Outcomes: Gaps
+
+::: columns
+::: {.column width="40%"}
+
+<br> 
+
+- Gap between health policy intentions and their practical implementation
+
+- Challenges within the existing health information systems
+
+- Need for Research on how to transform these technology adoption policies into actionable strategies that improve health outcomes
+
+
+> Policy Implementation Science
+
+<br> 
+
+> Learning Health Systems
+
+:::
+
+::: {.column width="60%"}
+
+![](images/policy_outcomes_gap.png)
+
+
+:::
+
+:::
+
+
+
+
+
+## Changing Public Health Landscape
+
+- Public health changes are slow, but crucial for societal well-being.
+- Public Health: Science *vs.* Advocacy
+- The need for participatory decision making in public health
+- Growing volume and complexity of public health data
+- Urgent need to generate evidence for policy making
+- Reproducibility and transparency in public health research
+
+
+# Applications
+
+## Doing Data Science
+
+### Data Science as a methodological approach
+
+::: {.callout-note }
+
+
+> The key word in <span style="color:red;"> data science</span> is not <span style="color:red;">data</span>, it is <span style="color:red; font-size:160%;">science</span>.
+
+ -- Jeff Leek, JHU Data Science Lab 
+
+:::
+
+
+### Reproducible Research
+
+::: columns
+::: {.column width="30%"}
+
+::: 
+::: {.column width="70%"}
+
+![](images/RR_Spectrum.png){width="900"}
+:::
+::: 
+
+
+
+
+## Reproducible Research
+
+::: columns
+::: {.column width="40%"}
+
+<br>
+
+There are four key elements of reproducible research:
+
+- data documentation
+- data publication
+- code publication,
+- output publication.
+
+::: 
+::: {.column width="60%"}
+
+![](images/reproducible_research_cycle.png)
+
+::: 
+:::
+
+
+## GIS and Public Health
+
+* Spatial epidemiology studies health patterns in relation to geographic location.
+* Crucial for public health (e.g., disease outbreak investigations).
+
+::: columns
+::: {.column width="40%"}
+-   Extremely useful in providing a fresh outlook to public health.
+
+-   Provides opportunity to enable overlaying data with its spatial representation
+
+-   Supports better planning and decision-making.
+
+-   The convergence of many new sub-disciplines:
+
+    -   medical geography
+    -   public health informatics
+    -   data science
+:::
+
+::: {.column width="60%"}
+![](images/history_gis_plague_naples.jpg)
+
+::: {style="font-size: 70%;"}
+Map of the plague in the province of Bari, Naples, 1690-1692\
+
+The map shows areas most affected and the boundaries of a military quarantine imposed to prevent its spread to neighboring towns and to other provinces.
+:::
+:::
+:::
+
+::: footer
+Koch T. Mapping the miasma: air, health, and place in early medical mapping. Cartographic Perspectives. 2005 Sep 1(52):4-27.
+:::
+
+## Applications of GIS in Public Health
+
+::: columns
+::: {.column width="50%"}
+-   disease surveillance
+-   environmental health
+-   infectious diseases
+    -   mathematical modelling
+    -   agent based modelling
+-   population genetics
+-   medical imagining
+-   cancer biology
+:::
+
+::: {.column width="50%"}
+::: r-stack
+![](images/soho-cholera-map.png){width="600"}
+
+![](images/rayshader2_john_snow.gif){.fragment width="600"}
+:::
+:::
+:::
+
+While traditional uses of GIS in healthcare still are relevant, newer methods and advancing technology would be monumental for public health research.
+
+
+## What is Spatial Data Science?
+
+::: columns
+
+::: {.column width="70%"}
+
+
+::: {.callout-note }
+
+## Definition
+
+<br>
+
+### Spatial data science (SDS) is a subset of Data Science that focuses on the unique characteristics of spatial data,  <span style="color:red;">moving beyond</span>  simply looking at <span style="color:red;">where</span> things happen <span style="color:red;">to understand why</span> they happen there.
+
+> CARTO  - [https://carto.com/what-is-spatial-data-science](https://carto.com/what-is-spatial-data-science)
+:::
+
+
+:::
+
+::: {.column width="30%"}
+![](images/what-is-sds.png)
+:::
+
+:::
+
+
+Like data science, spatial data science seems to be a field that <span style="color:red;">arises bottom-up</span> in and <span style="color:red;">from many existing scientific disciplines</span> and industrial activities <span style="color:red;">concerned with application of spatial data</span>, rather than being a sub-discipline of an existing scientific discipline. 
+
+> Edzer Pebesma, Roger Bivand   - Spatial Data Science
+With Applications in R 
+
+::: footer
+
+[https://r-spatial.org/book/](https://r-spatial.org/book/)
+
+:::
+
+
+
+
+## How is it different from Data Science? {auto-animate=true} 
+
+![](images/ds_venn.png){width="1200" fig-align="center"}
+
+
+## How is it different from Data Science? {auto-animate=true} 
+
+![](images/ds_venn.png){.absolute left=50 width="500"}
+![](images/ds_knowledge_stack.png){.absolute right=50 width="900"}
+
+## How is it different from Data Science? {auto-animate=true} 
+
+![](images/ds_venn.png){.absolute top=100 left=100 width="400"}
+![](images/ds_knowledge_stack.png){.absolute bottom=30 left=100 width="400"}
+
+![](images/sds_venn.png){.absolute top=50 right=100 width="900"}
+
+
+
+
+## Why Spatial Data Science for Public Health? {auto-animate=true} 
+
+![](images/epid_triad.png){width="1200" fig-align="center"}
+
+
+## Why Spatial Data Science for Public Health? {auto-animate=true} 
+
+![](images/epid_triad.png){.absolute left=50 width="300"}
+![](images/spatial_epi_triad1.png){.absolute right=50 width="1200"}
+
+
+## Why Spatial Data Science for Public Health? {auto-animate=true} 
+
+![](images/epid_triad.png){.absolute top=100 left=100 width="300"}
+![](images/spatial_epi_triad1.png){.absolute bottom=30 left=100 width="500"}
+
+![](images/julia_agents_1.gif){.absolute top=50 right=100 width="800"}
+
+## Why Spatial Data Science for Public Health? {auto-animate=true} 
+
+![](images/epid_triad.png){.absolute top=100 left=100 width="300"}
+![](images/spatial_epi_triad1.png){.absolute top=330 left=100 width="300"}
+
+![](images/julia_agents_1.gif){.absolute bottom=10 left=100 width="300"}
+
+::: columns
+
+::: {.column width="30%"}
+
+:::
+
+::: {.column width="70%"}
+
+<br> <br>
+
+- Wealth of Spatial Data
+
+- 70% of all data that is generated data has spatial attributes
+
+- Routine health data can be geo-referenced
+
+- Provide a gateway for researchers and practitioners to examine the role and harness the power of SDS in public health
+
+- Coupled with the emerging field of spatial statistics, the analysis of this location-based data is developing new and novel directions for public health.
+::: 
+::: 
+
+
+## Core Concepts related to GIS
+
+Spatial data are fundamental to many geographical analyses and spatial data science draws strongly from key geographical concepts
+
+<br>
+
+### First Law of Geography
+
+::: columns
+::: {.column width="70%"}
+
+::: {.callout-note }
+
+## Tobler's First Law 
+
+*"Everything is related to everything else, but near things are more related than distant things"*
+
+> Waldo Tobler, 1970
+
+:::
+
+::: 
+::: {.column width="25%"}
+![](images/waldo_tobler.jpg)
+::: 
+::: 
+
+## Spatial Dependence and Complete Spatial Randomness
+<br>
+
+Spatial dependence is *"the propensity for nearby locations to influence each other and to possess similar attributes"*.
+
+::: columns
+::: {.column width="60%"}
+![](images/point_patterns.png){width="900"}
+::: 
+
+
+::: {.column width="40%"}
+
+This means natural phenomenon are not spatially distributed at random.
+
+- temparature, 
+- rainfall, 
+- population density, 
+- socio-economic conditions etc.
+
+
+
+::: 
+
+:::
+
+
+It can be measured by the indices of Spatial Autocorrelation.
+
+
+## Spatial Autocorrelation
+
+
+Refers to the presence of systematic spatial variation in a mapped variable.
+
+The terms **spatial association** and **spatial dependence** are often used to reflect spatial auto-
+correlation as well.
+
+![](images/spatial_autocorrelation1.png)
+
+ 
+## Indices to measure Spatial Dependence 
+
+::: columns
+::: {.column width="50%"}
+
+- Covariance Functions and Variograms
+
+- Global Spatial Autocorrelation Measures
+  - Moran’s *I* index
+  - General *G*-Statistic
+  - Geary’s *C* index
+
+- Local Indicators of Spatial Association (LISA)
+  - Local Moran’s *I* index
+  - Getis-Ord *G*~*i*~ and *G*~*i*~^∗^ statistics
+  
+- Space-Time Correlation Analysis
+  - Bivariate Moran's *I* for STC
+  - Differential Moran's *I*
+  - Emerging Hot Spot Analysis (EHSA)
+
+
+:::
+
+::: {.column width="50%"}
+
+::: fragment
+![](images/global_moran_spatial_autocorrelation.png)
+:::
+
+
+::: fragment
+![](images/morans_scatterplot.png)
+:::
+
+:::
+:::
+
+## Core Concepts related to GIS
+
+
+### Map Projections & coordinate reference system (CRS)
+
+::: columns
+::: {.column width="40%"}
+
+- Map projections try to transform the earth from its spherical shape (3D) to a planar shape (2D).
+
+- A CRS then defines how the two-dimensional, projected map in your GIS relates to real places on the earth. 
+
+- The decision of which depends on the extent of the area, analysis type, and often on the availability of data.
+
+<br>
+
+[https://www.thetruesize.com](https://www.thetruesize.com)
+:::
+
+::: {.column width="60%"}
+
+![a) cylindrical projections, b) conical projections or c) planar projections.](images/projection_families.png){width="800"}
+
+
+:::
+:::
+
+::: footer
+[https://docs.qgis.org/3.28/en/docs/gentle_gis_introduction/coordinate_reference_systems.html](https://docs.qgis.org/3.28/en/docs/gentle_gis_introduction/coordinate_reference_systems.html)
+:::
+
+
+## Tools for Spatial Data Science
+
+::: columns
+
+
+::: {.column width="40%"}
+
+- GIS related
+- Data Science related
+- Spatial Data Science related
+
+> R is the best spatial data science tool available for public health !!!
+
+<br>
+R provides a range of powerful packages for geospatial analysis, enabling advanced computations and analytics. 
+
+
+
+
+::: 
+::: {.column width="60%"}
+
+![](images/sds_tools1.png)
+:::
+:::
+
+## R Spatial Analysis Ecosystem
+
+:::  columns
+::: {.column width="25%"}
+
+![](images/sf_hex2.gif)
+
+<br>
+
+[CRAN Task View -  Spatial Analysis](https://cran.r-project.org/web/views/Spatial.html)
+:::  
+::: {.column width="75%"}
+<iframe sandbox="allow-scripts allow-same-origin" src="https://cran.r-project.org/web/views/Spatial.html" width="1500" height="750"></iframe>
+:::  
+:::
+
+::: footer
+
+[https://cran.r-project.org/web/views/Spatial.html](https://cran.r-project.org/web/views/Spatial.html)
+:::
+
+## R Spatial Learning Resources
+
+:::  columns
+::: {.column width="65%"}
+- Wealth of Resource material
+
+- Powerful tools/packages
+
+- seamlessly handle vector and raster data
+
+- inractive visualization
+
+- end-to-end solution
+
+
+<br>
+![](images/R_books.png)
+
+Newest addition: [Spatial Data Science: With Applications in R](https://r-spatial.org/book/)
+::: 
+::: {.column width="35%"}
+![](images/SDS_book.jpg){width="500"}
+
+::: 
+::: 
+
+
+## The `sf` package 
+
+::: columns
+::: {.column width="45%"}
+
+![](images/sf_hex.gif)
+
+``` r
+install.packages("sf")
+```
+
+The **sf** package is an R implementation of [Simple Features](https://en.wikipedia.org/wiki/Simple_Features).
+
+This package incorporates:
+
+-   a new spatial data class system in R
+
+-   functions for reading and writing data
+
+-   tools for spatial operations on vectors
+
+
+:::
+
+::: {.column width="55%"}
+
+![](images/sf_2.png)
+:::
+:::
+
+
+
+## Geometry Types in `sf`
+
+::: columns
+::: {.column width="50%"}
+![](images/wkt_primitives.png)
+
+![](images/wkt_multipart.png)
+:::
+
+::: {.column width="50%"}
+![](images/sf-classes.png){width="800"}
+:::
+:::
+
+# Case Studies
+
+# Case Study 1: Caesarean Sections in India
+
+# Case Study 2: Access to Stroke in India
+
+
+
+
+# The Way Forward
+
+## Data for Better Lives
+
+::: {.columns}
+
+::: {.column width="30%"}
+
+
+![](images/data_for_better_lives.png)
+:::
+
+::: {.column width="70%"}
+![](images/data_lifecycle.png)
+
+:::
+
+:::
+
+## Trust and Data
+
+![](images/data_governance_management.png)
+
+## Where are we now?
+
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+![](images/data_demand_quality.png)
+
+:::
+
+::: {.column width="50%"}
+![](images/data_maturity_model.png)
+
+:::
+
+:::
+
+## Learning Health Systems
+
+![](images/learning_health_system.png)
+
+::: {.aside}
+<br>
+World Health Organization (WHO) - Learning Health Systems - 2024
+:::
+
+## References
+
+- Grolemund, H., & Wickham, H. (2017). *R for Data Science*. O'Reilly Media. [https://r4ds.had.co.nz/](https://r4ds.had.co.nz/)
+- James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). *An Introduction to Statistical Learning with Applications in R*. Springer. [https://www.statlearning.com/](https://www.statlearning.com/)
+- Wickham, H. (2016). *ggplot2: Elegant Graphics for Data Analysis*. Springer. [https://ggplot2-book.org/](https://ggplot2-book.org/)
+- Venables, W. N., & Ripley, B. D. (2002). *Modern Applied Statistics with S* (4th ed.). Springer. [https://www.stats.ox.ac.uk/pub/MASS4/](https://www.stats.ox.ac.uk/pub/MASS4/)
+- Peng, R. D. (2015). *R Programming for Data Science*. Leanpub. [https://bookdown.org/rdpeng/rprogdatascience/](https://bookdown.org/rdpeng/rprogdatascience/)
+- Kuhn, M., & Johnson, K. (2013). *Applied Predictive Modeling*. Springer. [https://topepo.github.io/caret/](https://topepo.github.io/caret/)
+- McKinney, W. (2017). *Python for Data Analysis* (2nd ed.). O'Reilly Media. [https://www.oreilly.com/library/view/python-for-data/9781491957653/](https://www.oreilly.com/library/view/python-for-data/9781491957653/) [Note: While this book focuses on Python, it offers valuable insights into data manipulation and analysis that are transferable to R.]
+
+Additional Resources:
+- ggplot2 Gallery: [https://exts.ggplot2.tidyverse.org/gallery/](https://exts.ggplot2.tidyverse.org/gallery/)
+- R Graphics Cookbook: [https://r-graphics.org/](https://r-graphics.org/)
+- Tidyverse Course: [https://jhudatascience.org/tidyversecourse/get-data.html](https://jhudatascience.org/tidyversecourse/get-data.html)
+- Tidyverse Cookbook: [https://rstudio-education.github.io/tidyverse-cookbook/import.html](https://rstudio-education.github.io/tidyverse-cookbook/import.html)
+- Data Wrangling Cheatsheet: [https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+- R Markdown: The Definitive Guide: [https://bookdown.org/yihui/rmarkdown/](https://bookdown.org/yihui/rmarkdown/)
+- Quarto: [https://quarto.org/](https://quarto.org/)
+
+# Thank You
+
+::: aside
+Email ID: <dr.arunmitra@gmail.com>
+:::
