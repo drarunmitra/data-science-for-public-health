@@ -323,7 +323,7 @@ $\rightarrow$
 ::: 
 ::: {.column width="70%"}
 
-![](images/RR_Spectrum.png){width="900"}
+![](images/RR_Spectrum.png)
 :::
 ::: 
 
