@@ -819,7 +819,7 @@ plots[[1]]
 #| echo: false
 #| out-height: '700'
 #| out-width: '1600'
-#| fig-responsive: false
+#| fig-responsive: true
 
 plots <- read_rds("plots/r0_districts_plot.rds")
 
