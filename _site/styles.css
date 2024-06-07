@@ -1,0 +1,65 @@
+/* css styles */
+
+.justify {
+  text-align: justify !important
+}
+
+
+
+.orange {
+  color: $theme-orange;
+  font-weight: bold;
+}
+
+.red {
+  color: $theme-red;
+  font-weight: bold;
+}
+
+.reveal pre code {
+  max-height: 1000px;
+}
+
+.reveal div.sourceCode pre code {
+    background-color: $theme-yellow;
+}
+
+
+.reveal .footer {
+  color: $theme-grey;
+}
+
+.textcenter {
+  text-align: center;
+}
+
+
+/* file: style.css */
+.v-center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+
+.section-color {
+  color: #FFF4E0;
+}
+
+
+.white-text-with-blue-shadow {
+  text-shadow:
+    3px 3px 6px white,
+    0 0 1em #FFE0A8AA,
+    0 0 1em #FFE0A8AA;
+  color: black;
+}
+
+
+.wrapper{
+  width: 100%;
+  text-align: justify;
+  display: flex;
+  flex-flow: row nowrap;
+  letter-spacing: 5px;
+}
