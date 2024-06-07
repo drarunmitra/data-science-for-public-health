@@ -1056,4 +1056,8 @@ World Health Organization (WHO) - Learning Health Systems - 2024
 
 - Quarto: [https://quarto.org/](https://quarto.org/)
 
+- Geographic Data Science: [https://geographicdata.science/book/intro.html](https://geographicdata.science/book/intro.html) (its in python, by the concepts are language agnostic)
+
+- Spatial Data Science with R and `terra`: [https://rspatial.org](https://rspatial.org)
+
 # Thank You
