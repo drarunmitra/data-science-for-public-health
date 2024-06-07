@@ -1,7 +1,7 @@
 ---
 title: "Data Science for Public Health"
 subtitle: "Concepts, Applications and Case Studies"
-author: "![](aiims_bibinagar_logo.png){width=300}<br><br>**Dr. Arun Mitra Peddireddy** <br>Dept of Community and Family Medicine,<br>All India Institute of Medical Sciences (AIIMS), Hyderabad"
+author: "![](aiims_bibinagar_logo.png){width=300}<br><br>**Dr. Arun Mitra Peddireddy** <br>Dept of Community and Family Medicine,<br>All India Institute of Medical Sciences (AIIMS), Hyderabad<br><br><a href= 'mailto: name@email.com'> dr.arunmitra@gmail.com </a>"
 format: 
   revealjs:
     slide-number: true
@@ -12,6 +12,23 @@ format:
     height: 1080
     width: 1920
 ---
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(here)
+library(sf)
+library(knitr)
+library(plotly)
+library(dygraphs)
+
+
+```
+
 
 # Concepts
 
@@ -767,11 +784,201 @@ This package incorporates:
 
 # Case Studies
 
-# Case Study 1: Caesarean Sections in India
+# Case Study 1: COVID-19 in India
 
-# Case Study 2: Access to Stroke in India
+## AMCHSS COVID-19 Dashboard
+
+::: panel-tabset
+
+### National Dashboard
+
+![](images/1.JPG){fig-align="center" height="700"}
+
+### State Dashboard
+
+![](images/home.JPG){fig-align="center" height="700"}
 
 
+### Epicurves
+
+```{r}
+#| echo: false
+#| out-height: '700'
+#| out-width: '1600'
+
+
+plots <- read_rds("plots/state_district_epidemic_curves_dygraphs.rds")
+
+plots[[1]]
+```
+
+
+### Rt
+
+```{r}
+#| echo: false
+#| out-height: '700'
+#| out-width: '1600'
+#| fig-responsive: false
+
+plots <- read_rds("plots/r0_districts_plot.rds")
+
+plots
+
+```
+
+
+### Mobility
+
+![](images/population_mobility.JPG){fig-align="center" height="700"}
+
+:::
+
+
+## District Level Reports
+
+
+::: panel-tabset
+
+### Semi-automated
+
+:::{.columns}
+
+:::: {.column width="30%"}
+
+```{r}
+#| echo: true
+
+# Specify the State 
+state = "Kerala"
+
+# Specify the District 
+district = "Wayanad"
+```
+
+::::
+
+
+:::: {.column width="70%"}
+![](images/12.JPG){fig-align="center"}
+
+::::
+
+:::
+
+
+### Comparision
+
+
+![](images/9.JPG){fig-align="center" height="700"}
+
+
+### Patterns
+
+
+![](images/11.JPG){fig-align="center" height="700"}
+
+
+:::
+
+## ICMR National COVID-19 Testing Database Project
+
+**_Transforming COVID-19 testing data into actionable evidence for public health decision-making using epidemiological, spatiotemporal, and data-science methods_**
+
+:::{.columns}
+
+
+:::: {.column width="30%"}
+
+- Dr. Biju Soman
+- Dr. Rakhal Gaitonde
+- Dr. Srikant Ambatipudi
+- Dr. Gurpreet Singh
+
+::::
+
+:::: {.column width="35%"}
+
+![](images/eficon2023_certificate.png){fig-align="center" height="700"}
+
+
+
+
+::::
+
+
+:::: {.column width="35%"}
+![](images/eficon2023_poster_001.png){fig-align="center" height="700"}
+
+::::
+
+:::
+
+# Case Study 2: Caesarean Sections in India
+
+
+## Rising Caesaren Sections in India
+
+::: panel-tabset
+
+### Objectives
+
+<br>
+<br>
+<br>
+
+1.  To study the patterns of caesarean section at the state and district level.
+2.  To investigate spatial clustering of caesarean sections across districts.
+
+
+### Rural *vs* Urban
+
+![](images/urban_rural_ridge_plot.png){fig-align="center" height="700"}
+
+### Varying Trends
+
+![](images/animation2.gif){fig-align="center" height="700"}
+
+### Spatial Clustering
+
+![](images/ohsa_cs_overall_nfhs5.png){fig-align="center" height="700"}
+
+### Public *vs* Private
+
+![](images/ohsa_public_private.png){fig-align="center" height="700"}
+:::
+
+
+
+# Case Study 3: Access to Stroke in India
+
+## Stroke Access in India
+
+
+::: panel-tabset
+
+### Objective
+
+- We sought to evaluate the spatial distribution of and geographic accessibility to stroke centers in India. 
+
+- Data Science Approach
+
+- Driving Distance and Travel Time estimations
+
+- Population Coverage estimations
+
+
+### Geographic Accessibility
+
+![](images/stroke_access_1.png){fig-align="center" height="700"}
+
+
+### Regional Disparities
+
+![](images/regional_disparities.png){fig-align="center" height="700"}
+
+
+:::
 
 
 # The Way Forward
@@ -834,17 +1041,19 @@ World Health Organization (WHO) - Learning Health Systems - 2024
 - Kuhn, M., & Johnson, K. (2013). *Applied Predictive Modeling*. Springer. [https://topepo.github.io/caret/](https://topepo.github.io/caret/)
 - McKinney, W. (2017). *Python for Data Analysis* (2nd ed.). O'Reilly Media. [https://www.oreilly.com/library/view/python-for-data/9781491957653/](https://www.oreilly.com/library/view/python-for-data/9781491957653/) [Note: While this book focuses on Python, it offers valuable insights into data manipulation and analysis that are transferable to R.]
 
-Additional Resources:
+## Additional Resources:
 - ggplot2 Gallery: [https://exts.ggplot2.tidyverse.org/gallery/](https://exts.ggplot2.tidyverse.org/gallery/)
+
 - R Graphics Cookbook: [https://r-graphics.org/](https://r-graphics.org/)
+
 - Tidyverse Course: [https://jhudatascience.org/tidyversecourse/get-data.html](https://jhudatascience.org/tidyversecourse/get-data.html)
+
 - Tidyverse Cookbook: [https://rstudio-education.github.io/tidyverse-cookbook/import.html](https://rstudio-education.github.io/tidyverse-cookbook/import.html)
+
 - Data Wrangling Cheatsheet: [https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+
 - R Markdown: The Definitive Guide: [https://bookdown.org/yihui/rmarkdown/](https://bookdown.org/yihui/rmarkdown/)
+
 - Quarto: [https://quarto.org/](https://quarto.org/)
 
 # Thank You
-
-::: aside
-Email ID: <dr.arunmitra@gmail.com>
-:::
